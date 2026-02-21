@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias { libs.plugins.google.ksp }
+    alias { libs.plugins.google.hilt }
 }
 
 android {
@@ -56,4 +58,18 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    //hilt
+    implementation(libs.google.hilt.android)
+    ksp(libs.google.hilt.compiler)
+
+    //network
+    implementation(libs.com.jakewharton.retrofit.serialization.converter)
+    implementation(libs.square.retrofit)
+    implementation(libs.square.okhttp3)
+    implementation(libs.square.interceptor)
+    implementation(libs.kotlinx.serialization)
 }
