@@ -1,4 +1,4 @@
-package com.example.dogsshowcase.core.data.models
+package com.example.dogsshowcase.features_components.data.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

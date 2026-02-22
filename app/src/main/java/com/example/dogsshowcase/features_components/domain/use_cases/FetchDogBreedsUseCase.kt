@@ -1,7 +1,7 @@
-package com.example.dogsshowcase.core.domain.use_cases
+package com.example.dogsshowcase.features_components.domain.use_cases
 
-import com.example.dogsshowcase.core.data.models.DogBreedResponse
-import com.example.dogsshowcase.core.domain.repository.DogBreedsRepository
+import com.example.dogsshowcase.features_components.data.models.DogBreedResponse
+import com.example.dogsshowcase.features_components.domain.repository.DogBreedsRepository
 import com.example.dogsshowcase.utils.Resource
 import kotlinx.coroutines.flow.Flow
 

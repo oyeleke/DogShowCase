@@ -1,10 +1,10 @@
 package com.example.dogsshowcase.di
 
-import com.example.dogsshowcase.core.data.remote.DogBreedsApi
-import com.example.dogsshowcase.core.data.repository.DogBreedsRepositoryImpl
-import com.example.dogsshowcase.core.domain.repository.DogBreedsRepository
-import com.example.dogsshowcase.core.domain.use_cases.FetchDogBreedImagesUseCase
-import com.example.dogsshowcase.core.domain.use_cases.FetchDogBreedsUseCase
+import com.example.dogsshowcase.features_components.data.remote.DogBreedsApi
+import com.example.dogsshowcase.features_components.data.repository.DogBreedsRepositoryImpl
+import com.example.dogsshowcase.features_components.domain.repository.DogBreedsRepository
+import com.example.dogsshowcase.features_components.domain.use_cases.FetchDogBreedImagesUseCase
+import com.example.dogsshowcase.features_components.domain.use_cases.FetchDogBreedsUseCase
 import com.example.dogsshowcase.utils.K
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module

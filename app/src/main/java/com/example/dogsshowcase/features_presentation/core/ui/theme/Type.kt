@@ -1,4 +1,4 @@
-package com.example.dogsshowcase.ui.theme
+package com.example.dogsshowcase.features_presentation.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
