@@ -23,7 +23,6 @@ object AppModule {
 
     private val json = Json {
         coerceInputValues = true
-        ignoreUnknownKeys = true
     }
 
     @Provides

@@ -15,9 +15,10 @@ class DogBreedNavigationActions(
 
     val navigateToDogBreedImages: (dogBreed: String) -> Unit = { breed ->
         navController.navigateToSingleTop(
-            route = UiScreen.DogBreedImagesScreen(
-                breed = breed
-            ).routeWithArgs
+            route = "${
+                UiScreen.DogBreedImagesScreen(
+                ).route
+            }/$breed"
         )
     }
 }

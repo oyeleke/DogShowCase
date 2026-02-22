@@ -8,13 +8,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dogsshowcase.features_components.domain.use_cases.FetchDogBreedImagesUseCase
 import com.example.dogsshowcase.utils.K
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class DogBreedImagesViewModel @Inject constructor(
     private val fetchDogBreedImagesUseCase: FetchDogBreedImagesUseCase,
     savedStateHandle: SavedStateHandle,
-): ViewModel() {
+) : ViewModel() {
     val breed: String = savedStateHandle.get<String>(K.DOG_BREED) ?: ""
 
     var dogBreedImagesState by mutableStateOf(DogBreedImagesState())
@@ -24,7 +26,7 @@ class DogBreedImagesViewModel @Inject constructor(
         loadDogImages()
     }
 
-    private fun loadDogImages(){
+    private fun loadDogImages() {
         viewModelScope.launch {
             dogBreedImagesState = dogBreedImagesState.copy(
                 imageList = fetchDogBreedImagesUseCase.invoke(breed = breed)

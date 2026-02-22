@@ -7,9 +7,9 @@ import retrofit2.http.Path
 
 interface DogBreedsApi {
     companion object {
-        private const val LIST_ALL_BREEDS_ENDPOINT = "/breeds/list/all"
+        private const val LIST_ALL_BREEDS_ENDPOINT = "breeds/list/all"
         private const val GET_RANDOM_DOG_IMAGES_ENDPOINT =
-            "/breed/{breed}/images/random/{numberOfImages}"
+            "breed/{breed}/images/random/{numberOfImages}"
     }
 
     @GET(LIST_ALL_BREEDS_ENDPOINT)

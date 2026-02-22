@@ -24,10 +24,7 @@ class DogBreedsRepositoryImpl(
         awaitClose { }
     }
 
-    override fun fetchDogBreedsImages(
-        breed: String,
-        numberOfImages: Int
-    ): Flow<Resource<DogImagesResponse>> =
+    override fun fetchDogBreedsImages(breed: String, numberOfImages: Int): Flow<Resource<DogImagesResponse>> =
         callbackFlow {
             trySend(Resource.Loading())
             try {
@@ -36,6 +33,6 @@ class DogBreedsRepositoryImpl(
             } catch (error: Exception) {
                 trySend(Resource.Error(error = error))
             }
-            awaitClose { }
+            awaitClose {  }
         }
 }

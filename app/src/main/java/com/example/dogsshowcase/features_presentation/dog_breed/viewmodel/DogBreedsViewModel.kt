@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.dogsshowcase.features_components.domain.use_cases.FetchDogBreedsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,4 +17,18 @@ class DogBreedViewModel @Inject constructor(
 
     var dogBreedState by mutableStateOf(DogBreedState())
         private set
+
+
+    init {
+        loadDogBreeds()
+    }
+
+    private fun loadDogBreeds() {
+        viewModelScope.launch {
+            dogBreedState = dogBreedState.copy(
+                dogBreeds = dogBreedUseCase.invoke()
+            )
+        }
+
+    }
 }

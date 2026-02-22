@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias { libs.plugins.google.ksp }
     alias { libs.plugins.google.hilt }
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -75,4 +76,7 @@ dependencies {
     implementation(libs.square.okhttp3)
     implementation(libs.square.interceptor)
     implementation(libs.kotlinx.serialization)
+
+    //coil
+    implementation(libs.kt.coil)
 }

@@ -10,8 +10,6 @@ activityCompose = "1.12.4"
 composeBom = "2024.09.00"
 hilt = "2.57.2"
 kotlinxCoroutinesAndroid = "1.10.2"
-composeMaterialIconsExtended = "1.7.8"
-desugar_jdk_libs = "2.1.5"
 jakeWhartonSerializationConverter = "1.0.0"
 square = "2.9.0"
 square-interceptor = "4.9.0"
@@ -19,6 +17,7 @@ kotlinx-serialization = "1.6.0"
 navigationRuntimeKtx = "2.9.7"
 navigationCompose = "2.9.7"
 hiltComposeNavigation = "1.0.0"
+ktCoil = "2.5.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,8 +36,6 @@ androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-te
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 google-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
-android-tools-desugar = {group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar_jdk_libs"}
-androidx-compose-material3-extended-icons = { group = "androidx.compose.material", name = "material-icons-extended-android", version.ref = "composeMaterialIconsExtended" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 com-jakewharton-retrofit-serialization-converter = { module ="com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "jakeWhartonSerializationConverter"}
 square-retrofit = {group = "com.squareup.retrofit2", name ="retrofit", version.ref = "square"}
@@ -48,6 +45,8 @@ kotlinx-serialization =  {group ="org.jetbrains.kotlinx", name = "kotlinx-serial
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 hilt-navigation-compose = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeNavigation"}
+kt-coil = {group = "io.coil-kt", name = "coil-compose", version.ref = "ktCoil"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -55,4 +54,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.27" }
 google-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
