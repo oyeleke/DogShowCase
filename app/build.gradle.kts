@@ -79,4 +79,12 @@ dependencies {
 
     //coil
     implementation(libs.kt.coil)
+
+    //testing
+    testImplementation(libs.google.truth)
+    androidTestImplementation(libs.google.truth)
+    testImplementation(libs.square.mockWebServer)
+    androidTestImplementation(libs.square.mockWebServer)
+    testImplementation(libs.kotlinx.coroutines.test.android)
+    androidTestImplementation(libs.kotlinx.coroutines.test.android)
 }

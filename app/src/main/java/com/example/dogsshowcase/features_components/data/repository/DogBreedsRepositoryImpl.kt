@@ -18,21 +18,28 @@ class DogBreedsRepositoryImpl(
         try {
             val dogBreeds = api.getAllDogBreeds()
             trySend(Resource.Success(data = dogBreeds))
+            close()
         } catch (error: Exception) {
             trySend(Resource.Error(error = error))
+            close()
         }
         awaitClose { }
     }
 
-    override fun fetchDogBreedsImages(breed: String, numberOfImages: Int): Flow<Resource<DogImagesResponse>> =
+    override fun fetchDogBreedsImages(
+        breed: String,
+        numberOfImages: Int
+    ): Flow<Resource<DogImagesResponse>> =
         callbackFlow {
             trySend(Resource.Loading())
             try {
                 val res = api.getRandomDogImages(breed = breed, numberOfImages = numberOfImages)
                 trySend(Resource.Success(data = res))
+                close()
             } catch (error: Exception) {
                 trySend(Resource.Error(error = error))
+                close()
             }
-            awaitClose {  }
+            awaitClose { }
         }
 }
