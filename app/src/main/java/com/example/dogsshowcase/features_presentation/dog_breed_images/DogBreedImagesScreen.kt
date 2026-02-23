@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Warning
@@ -34,6 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -80,7 +82,7 @@ fun DogBreedImagesScreen(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Spacer(modifier = Modifier.width(12.dp))
                         Text(
-                            text = "${dogBreedImagesViewModel.breed} Images",
+                            text = "${dogBreedImagesViewModel.breed.replaceFirstChar { it.uppercase() }} Images",
                             fontWeight = FontWeight.SemiBold,
                             color = Color.Black
                         )
@@ -118,7 +120,8 @@ fun DogBreedImagesScreen(
                                 contentScale = ContentScale.Crop,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .aspectRatio(1f) // Makes square images
+                                    .aspectRatio(1f).size(64.dp)
+                                    .clip(RoundedCornerShape(12.dp)), // Makes square images
                             )
                         }
                     }
