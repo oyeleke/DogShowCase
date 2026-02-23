@@ -3,6 +3,7 @@ package com.example.dogsshowcase.features_presentation.dog_breed
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,12 +11,17 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -69,10 +75,9 @@ fun DogBreedsScreen(
             )
         },
     ) { innerPadding ->
-
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(innerPadding).fillMaxSize()
         ) {
             when (dogBreedStateList) {
                 is Resource.Loading -> {
@@ -97,6 +102,28 @@ fun DogBreedsScreen(
 
                 is Resource.Error -> {
                     item {
+
+                        Column(
+                            modifier = Modifier.fillParentMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Warning,
+                                contentDescription = "warning",
+                                tint = Color.Red,
+                                modifier = Modifier
+                                    .size(60.dp)
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            (dogBreedStateList as Resource.Error).error?.message?.let {
+                                Text(
+                                    text = it,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = Color.Black
+                                )
+                            }
+                        }
                         Toast.makeText(
                             LocalContext.current,
                             (dogBreedStateList as Resource.Error).error?.message,
@@ -122,7 +149,7 @@ fun DogBreedItem(breed: String, onClick: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(4.dp)
+            .padding(paddingValues = PaddingValues(horizontal = 16.dp, vertical = 10.dp))
             .clickable {
                 onClick(breed)
             }

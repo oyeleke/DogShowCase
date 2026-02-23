@@ -19,7 +19,7 @@ class FetchDogBreedImagesUseCase(
                 is Resource.Error -> Resource.Error(error = res.error)
                 is Resource.Success -> if (res.data.message.isEmpty()) Resource.Error(
                     error = IllegalStateException(
-                        "No Images Gotten For Breed status: ${res.data.status}"
+                        "No images found for this breed"
                     )
                 ) else Resource.Success(data = res.data.message)
             }
