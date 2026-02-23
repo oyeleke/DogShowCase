@@ -1,7 +1,5 @@
 package com.example.dogsshowcase.features_presentation.dog_breed_images
 
-import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +37,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -120,7 +117,8 @@ fun DogBreedImagesScreen(
                                 contentScale = ContentScale.Crop,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .aspectRatio(1f).size(64.dp)
+                                    .aspectRatio(1f)
+                                    .size(64.dp)
                                     .clip(RoundedCornerShape(12.dp)), // Makes square images
                             )
                         }
@@ -155,18 +153,6 @@ fun DogBreedImagesScreen(
 
                         }
                     }
-                    Toast.makeText(
-                        LocalContext.current,
-                        (dogBreedImagesState as Resource.Error).error?.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-
-                    Log.e(
-                        "Detail Screen",
-                        "DetailScreen: ",
-                        (dogBreedImagesState as Resource.Error).error
-                    )
                 }
             }
         }
