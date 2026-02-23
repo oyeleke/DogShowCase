@@ -29,7 +29,7 @@ All dependencies (API, repository, use cases) are provided through a single `App
 ### Networking — Retrofit + Kotlinx Serialization
 
 - **Retrofit** handles HTTP calls to the [Dog CEO API](https://dog.ceo/dog-api/) (`https://dog.ceo/api/`).
-- **Kotlinx Serialization** is used for JSON parsing (via `jakewharton/retrofit2-kotlinx-serialization-converter`) instead of Gson/Moshi.
+- **Kotlinx Serialization** is used for JSON parsing.
 
 ### State Management — `Resource<T>` Sealed Class + Flow
 
